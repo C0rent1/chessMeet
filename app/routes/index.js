@@ -23,6 +23,28 @@ router.get('/jouer', function(req, res) {
 router.get('/compte', function(req, res) {
   res.sendFile(path.resolve(__dirname+'/compte.html'));
 });
+router.get('/regles_jeu', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/regles_jeu.html')); //TODO
+});
+router.get('/jouer_suite', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/jouer_suite.html'));  //TODO
+});
+router.get('/membres', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/membres.html'));
+});
+router.get('/chat', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/chat.html'));
+});
+router.get('/comptejoueur', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/comptejoueur.html'));
+});
+router.get('/creationCompte', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/creationCompte.html'));
+});
+router.get('/carte', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/carte.html'));
+});
+
 
 // the catch all route
 router.all('*', (req, res) => {

@@ -1,0 +1,605 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="https://kit.fontawesome.com/078c236eda.js" crossorigin="anonymous"></script>
+<script src="jQueryAssets/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js" type="text/javascript"></script>
+<link href="./css/bootstrap-4.3.1.css" rel="stylesheet">
+<title>Jouer</title>
+	 <link href="./css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body{
+    margin: 0;
+    padding: 0;
+    background: #c0c0c0;
+    font-size: 22px;
+    color: #a14e2c;
+}
+.mss {margin:0px;font-family:Georgia;font-size:16px;width:400px;text-align:center;border:0px;color:#A14E2C;background-color:#C0C0C0;}
+img {display:block;position:absolute;border:0;}
+img.pcs {cursor:pointer;width:36px;height:36px;z-index:1;}
+img.btn {width:36px;height:36px;}
+#jeu {margin-left:46px;}
+#txa {
+    display: block;
+    position: absolute;
+    font-family: Courier New;
+    color: #000000;
+    background-color: #F6C61F;
+    width: 190px;
+    height: 228px;
+    font-size: 8pt;
+    font-weight: bold;
+}
+#tsl{display:block;position:absolute;font-family:Courier New;color:#A14E2C;background-color:#FFFFFF;width:164px;font-size:8pt;font-weight:bold;}
+#gms{display:block;position:absolute;}
+#chp{display:block;position:absolute;}
+</style>
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+                <a class="nav-link" href="#" style="margin-left: 80px;"><strong style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size: 18px;">Accueil </strong></a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 80px;"><strong style="font-size: 18px;">Apprendre</strong></a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link" href="#Jouer" style="margin-left: 80px;"><strong style="font-size: 18px">Jouer</strong></a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 80px;"><strong style="font-size: 18px">Membres</strong></a>
+             </li>
+			   <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 100px"><i class="fas fa-user-circle" style="font-size: 30px; color: #DBB140"></i></a>
+             </li>
+          </ul>        
+          <form class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Chercher.." aria-label="Chercher" size="17px;">
+             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+          </form>
+    </div>
+    </nav>
+<br>
+<input class="mss"style="font-weight:bold;font-size:24px" id="msg"><br>
+<input class="mss" id="mss"><br><br>
+<img id="jeu" src=""><img src="" width="308" height="308" alt=""/><img style="margin-left:47px" src="./img/echec.gif" width="308" height="308" alt=""/>
+<textarea id="txa" class="lst" rows="1" cols="20"></textarea>
+	</br>
+	<script type="text/javascript">
+function afficherparam()
+{
+  if (document.getElementById(divparam).style.display === 'none') {
+       document.getElementById(divparam).style.display = 'block';
+  }
+  else {
+       document.getElementById(divparam).style.display = 'none';
+  }
+}
+</script>
+	<input type="button" onClick="afficherparam()" style="margin-left: 600px; margin-top: 2px; font-size: xx-large;"/>
+	<div id="divparam" style="background-color:aliceblue; margin-left: 600px;margin-right: 70px; display: none;">
+	<p><strong><em>Paramètres de jeu</em></strong></p>
+		<p>Difficulté</p>
+		<p>Mode évaluation</p>
+	  <button type="button" class="btn btn-info">1</button>
+				<button type="button" class="btn btn-info">2</button>
+				<button type="button" class="btn btn-info">3</button>
+				<button type="button" class="btn btn-info">4</button>
+				<button type="button" class="btn btn-info">5</button>
+				<button type="button" class="btn btn-info">6</button>
+				<button type="button" class="btn btn-info">7</button>
+				<button type="button" class="btn btn-info">8</button>
+				<button type="button" class="btn btn-info">9</button>
+				<button type="button" class="btn btn-info">10</button>
+      <button style="background-color: aquamarine; margin-left:170px;">Go</button>
+      
+<strong></strong>
+	</div>
+</br>
+<select id="tsl" class="slc" size=16 onclick="GotoStep(this.selectedIndex)"><option>&nbsp;&nbsp;&nbsp;D&eacute;but de partie</select>
+<img id="tbl" src=""><img style="margin-left:800px; margin-top: -70px;"  src="./img/table.gif" width="154" height="230" alt=""/>
+<select id="gms" onchange="Games(this.value)"><option value="0">Players</option><option value="Adams.pgn">Adams (Michael) 2520 games</option><option value="Akobian.pgn">Akobian (Varuzhan) 797 games</option><option value="Akopian.pgn">Akopian (Vladimir) 1511 games</option><option value="Alburt.pgn">Alburt (Lev Osipovitch) 776 games</option><option value="Alekhine.pgn">Alekhine (Alexander) 1661 games</option><option value="Alekseev.pgn">Alekseev (Evgeny) 924 games</option><option value="Almasi.pgn">Almasi (Zoltan) 1594 games</option><option value="Anand.pgn">Anand (Viswanathan) 2660 games</option><option value="Anderssen.pgn">Anderssen (Adolf) 681 games</option><option value="Aronian.pgn">Aronian (Levon) 1443 games</option><option value="Ashley.pgn">Ashley (Maurice) 414 games</option><option value="Averbakh.pgn">Averbakh (Yuri Lvovitch) 885 games</option><option value="Azmaiparashvili.pgn">Azmaiparashvili (Zurab) 1318 games</option><option value="Bacrot.pgn">Bacrot (Etienne) 1718 games</option><option value="Bareev.pgn">Bareev (Evgeny) 1834 games</option><option value="BecerraRivero.pgn">Becerra Rivero (Julio) 904 games</option><option value="Beliavsky.pgn">Beliavsky (Alexander Genrikhovic) 2795 games</option><option value="Benjamin.pgn">Benjamin (Joel) 1568 games</option><option value="Benko.pgn">Benko (Pal Charles) 1376 games</option><option value="Berliner.pgn">Berliner (Hans Jack) 64 games</option><option value="Bernstein.pgn">Bernstein (Ossip) 261 games</option><option value="Bird.pgn">Bird (Henry Edward) 353 games</option><option value="Bisguier.pgn">Bisguier (Arthur Bernard) 1186 games</option><option value="Blackburne.pgn">Blackburne (Joseph Henry) 738 games</option><option value="Blatny.pgn">Blatny (Pavel) 1688 games</option><option value="Bogoljubow.pgn">Bogoljubow (Efim) 973 games</option><option value="Boleslavsky.pgn">Boleslavsky (Isaak) 651 games</option><option value="Bologan.pgn">Bologan (Viktor) 2024 games</option><option value="Botvinnik.pgn">Botvinnik (Mikhail) 891 games</option><option value="Bronstein.pgn">Bronstein (David Ionovitch) 1930 games</option><option value="Browne.pgn">Browne (Walter Shawn) 1589 games</option><option value="Bruzon.pgn">Bruzon (Lazaro) 690 games</option><option value="BuXiangzhi.pgn">Bu Xiangzhi 1073 games</option><option value="Byrne.pgn">Byrne (Robert Eugene) 1013 games</option><option value="Capablanca.pgn">Capablanca (Jose Raul) 597 games</option><option value="Carlsen.pgn">Carlsen (Magnus) 1392 games</option><option value="Caruana.pgn">Caruana (Fabiano) 842 games</option><option value="Chiburdanidze.pgn">Chiburdanidze (Maia) 1296 games</option><option value="Chigorin.pgn">Chigorin (Mikhail) 688 games</option><option value="Christiansen.pgn">Christiansen (Larry Mark) 1576 games</option><option value="DeFirmian.pgn">De Firmian (Nicholas Ernest) 1668 games</option><option value="DeLaBourdonnais.pgn">De La Bourdonnais (Louis) 101 games</option><option value="Denker.pgn">Denker (Arnold Sheldon) 404 games</option><option value="DominguezPerez.pgn">Dominguez Perez (Lenier) 452 games</option><option value="Dreev.pgn">Dreev (Alexey) 2385 games</option><option value="Dzindzichashvili.pgn">Dzindzichashvili (Roman) 780 games</option><option value="Ehlvest.pgn">Ehlvest (Jaan) 2291 games</option><option value="Eljanov.pgn">Eljanov (Pavel) 996 games</option><option value="Euwe.pgn">Euwe (Max) 1122 games</option><option value="Evans.pgn">Evans (Larry) 685 games</option><option value="Fedorowicz.pgn">Fedorowicz (John Peter) 1337 games</option><option value="Fine.pgn">Fine (Reuben) 305 games</option><option value="Finegold.pgn">Finegold (Benjamin) 725 games</option><option value="Fischer.pgn">Fischer (Robert James) 827 games</option><option value="Fishbein.pgn">Fishbein (Alexander) 422 games</option><option value="Flohr.pgn">Flohr (Salo) 986 games</option><option value="Gaprindashvili.pgn">Gaprindashvili (Nona) 1015 games</option><option value="Gashimov.pgn">Gashimov (Vugar) 936 games</option><option value="Gelfand.pgn">Gelfand (Boris) 2395 games</option><option value="Geller.pgn">Geller (Efim Petrovich) 2198 games</option><option value="Georgiev.pgn">Georgiev (Kiril) 1958 games</option><option value="Giri.pgn">Giri (Anish) 452 games</option><option value="Gligoric.pgn">Gligoric (Svetozar) 2898 games</option><option value="Goldin.pgn">Goldin (Alexander) 898 games</option><option value="GrandaZuniga.pgn">Granda Zuniga (Julio Ernesto) 1266 games</option><option value="Grischuk.pgn">Grischuk (Alexander) 1647 games</option><option value="Gulko.pgn">Gulko (Boris Frantsevitch) 1850 games</option><option value="Gunsberg.pgn">Gunsberg (Isidor) 319 games</option><option value="GurevichD.pgn">Gurevich (Dmitry) 1420 games</option><option value="GurevichM.pgn">Gurevich (Mikhail) 2310 games</option><option value="Harikrishna.pgn">Harikrishna (Penteala) 1108 games</option><option value="Hort.pgn">Hort (Vlastimil) 3004 games</option><option value="Horwitz.pgn">Horwitz (Bernhard) 113 games</option><option value="Huebner.pgn">Huebner (Robert) 2023 games</option><option value="Ibragimov.pgn">Ibragimov (Ildar) 1368 games</option><option value="IllescasCordoba.pgn">Illescas Cordoba (Miguel) 1304 games</option><option value="Ivanchuk.pgn">Ivanchuk (Vassily) 3073 games</option><option value="IvanovA.pgn">Ivanov (Alexander) 1161 games</option><option value="IvanovI.pgn">Ivanov (Igor Vasilyevich) 784 games</option><option value="Ivkov.pgn">Ivkov (Borislav) 2505 games</option><option value="Jakovenko.pgn">Jakovenko (Dmitrij) 1016 games</option><option value="Janowski.pgn">Janowski (Dawid Markelowicz) 769 games</option><option value="Jussupow.pgn">Jussupow (Artur) 1796 games</option><option value="Kaidanov.pgn">Kaidanov (Grigory Sinowjewitsch) 997 games</option><option value="Kamsky.pgn">Kamsky (Gata) 1351 games</option><option value="Karjakin.pgn">Karjakin (Sergei) 1252 games</option><option value="Karpov.pgn">Karpov (Anatoly) 3228 games</option><option value="Kasimdzhanov.pgn">Kasimdzhanov (Rustam) 1180 games</option><option value="Kasparov.pgn">Kasparov (Gary) 2016 games</option><option value="Kavalek.pgn">Kavalek (Lubomir) 1328 games</option><option value="Keres.pgn">Keres (Paul) 1571 games</option><option value="Khalifman.pgn">Khalifman (Alexander) 1979 games</option><option value="Kholmov.pgn">Kholmov (Ratmir Dmitrievitch) 1900 games</option><option value="Koneru.pgn">Koneru (Humpy) 937 games</option><option value="Korchnoi.pgn">Korchnoi (Viktor) 4520 games</option><option value="Kosteniuk.pgn">Kosteniuk (Alexandra) 1032 games</option><option value="Kotov.pgn">Kotov (Alexander) 641 games</option><option value="Kramnik.pgn">Kramnik (Vladimir) 2196 games</option><option value="Krasenkow.pgn">Krasenkow (Michal) 1968 games</option><option value="Krush.pgn">Krush (Irina) 1153 games</option><option value="Kudrin.pgn">Kudrin (Sergey) 1181 games</option><option value="Lahno.pgn">Lahno (Kateryna) 764 games</option><option value="Larsen.pgn">Larsen (Bent) 2383 games</option><option value="Lasker.pgn">Lasker (Emanuel) 1063 games</option><option value="Lautier.pgn">Lautier (Joel) 1796 games</option><option value="Leko.pgn">Leko (Peter) 1879 games</option><option value="LeQuangLiem.pgn">Le Quang Liem 600 games</option><option value="Levenfish.pgn">Levenfish (Grigory) 354 games</option><option value="Lilienthal.pgn">Lilienthal (Andor) 649 games</option><option value="Ljubojevic.pgn">Ljubojevic (Ljubomir) 1944 games</option><option value="Lputian.pgn">Lputian (Smbat Gariginovich) 1552 games</option><option value="MacKenzie.pgn">Mackenzie (George Henry) 198 games</option><option value="Malakhov.pgn">Malakhov (Vladimir) 1128 games</option><option value="Mamedyarov.pgn">Mamedyarov (Shahriar) 1189 games</option><option value="Maroczy.pgn">Maroczy (Geza) 756 games</option><option value="Marshall.pgn">Marshall (Frank James) 1027 games</option><option value="McDonnell.pgn">McDonnell (Alexander) 106 games</option><option value="McShane.pgn">McShane (Luke James) 1050 games</option><option value="Mecking.pgn">Mecking (Henrique) 557 games</option><option value="Mikenas.pgn">Mikenas (Vladas) 497 games</option><option value="Miles.pgn">Miles (Anthony John) 2614 games</option><option value="Milov.pgn">Milov (Vadim) 1280 games</option><option value="Morozevich.pgn">Morozevich (Alexander) 1516 games</option><option value="Morphy.pgn">Morphy (Paul) 211 games</option><option value="Motylev.pgn">Motylev (Alexander) 1144 games</option><option value="Movsesian.pgn">Movsesian (Sergei) 1902 games</option><option value="Najdorf.pgn">Najdorf (Miguel) 1604 games</option><option value="Najer.pgn">Najer (Evgeniy) 1182 games</option><option value="Nakamura.pgn">Nakamura (Hikaru) 1179 games</option><option value="Navara.pgn">Navara (David) 1187 games</option><option value="Negi.pgn">Negi (Parimarjan) 710 games</option><option value="Nepomniachtchi.pgn">Nepomniachtchi (Ian) 784 games</option><option value="Nielsen.pgn">Nielsen (Peter Heine) 1835 games</option><option value="NiHua.pgn">Ni Hua 1038 games</option><option value="Nimzowitsch.pgn">Nimzowitsch (Aaron) 512 games</option><option value="Nisipeanu.pgn">Nisipeanu (Liviu Dieter) 1267 games</option><option value="Novikov.pgn">Novikov (Igor A) 1315 games</option><option value="Nunn.pgn">Nunn (John Denis Martin) 1643 games</option><option value="Olafsson.pgn">Olafsson (Fridrik) 916 games</option><option value="Oll.pgn">Oll (Lembit) 1034 games</option><option value="Onischuk.pgn">Onischuk (Alexander) 1360 games</option><option value="Pachman.pgn">Pachman (Ludek) 1462 games</option><option value="Paehtz.pgn">Paehtz (Elisabeth) 1172 games</option><option value="Panno.pgn">Panno (Oscar) 1873 games</option><option value="Paulsen.pgn">Paulsen (Louis) 322 games</option><option value="Petrosian.pgn">Petrosian (Tigran Vartanovich) 1893 games</option><option value="Philidor.pgn">Philidor (Francois-Andre Danican) 6 games</option><option value="Pillsbury.pgn">Pillsbury (Harry Nelson) 388 games</option><option value="Pilnik.pgn">Pilnik (Herman) 899 games</option><option value="PolgarJ.pgn">Polgar (Judit) 1692 games</option><option value="PolgarS.pgn">Polgar (Sofia) 717 games</option><option value="PolgarZ.pgn">Polgar (Zsuzsa) 909 games</option><option value="Polugaevsky.pgn">Polugaevsky (Lev) 1890 games</option><option value="Ponomariov.pgn">Ponomariov (Ruslan) 1308 games</option><option value="Portisch.pgn">Portisch (Lajos) 2979 games</option><option value="Psakhis.pgn">Psakhis (Lev) 1963 games</option><option value="Quinteros.pgn">Quinteros (Miguel Angel) 1136 games</option><option value="Radjabov.pgn">Radjabov (Teimour) 1179 games</option><option value="Reshevsky.pgn">Reshevsky (Samuel Herman) 1267 games</option><option value="Reti.pgn">Reti (Richard) 646 games</option><option value="Ribli.pgn">Ribli (Zoltan) 2014 games</option><option value="Rohde.pgn">Rohde (Michael Arthur) 445 games</option><option value="Rubinstein.pgn">Rubinstein (Akiba) 797 games</option><option value="Rublevsky.pgn">Rublevsky (Sergei) 1418 games</option><option value="Saemisch.pgn">Saemisch (Fritz) 551 games</option><option value="Sakaev.pgn">Sakaev (Konstantin) 1425 games</option><option value="Salov.pgn">Salov (Valery) 766 games</option><option value="Sasikiran.pgn">Sasikiran (Krishnan) 1115 games</option><option value="Schlechter.pgn">Schlechter (Carl) 739 games</option><option value="Seirawan.pgn">Seirawan (Yasser) 1444 games</option><option value="Serper.pgn">Serper (Grigory) 848 games</option><option value="Shabalov.pgn">Shabalov (Alexander) 1792 games</option><option value="Shamkovich.pgn">Shamkovich (Leonid) 977 games</option><option value="Shirov.pgn">Shirov (Alexei) 2877 games</option><option value="Short.pgn">Short (Nigel David) 2418 games</option><option value="Shulman.pgn">Shulman (Yuri) 1060 games</option><option value="Smirin.pgn">Smirin (Ilia) 1745 games</option><option value="Smyslov.pgn">Smyslov (Vassily) 2627 games</option><option value="Sokolov.pgn">Sokolov (Ivan) 2411 games</option><option value="Soltis.pgn">Soltis (Andrew Eden) 370 games</option><option value="Spassky.pgn">Spassky (Boris Vassilievitch) 2231 games</option><option value="Speelman.pgn">Speelman (Jonathan Simon) 2087 games</option><option value="Stahlberg.pgn">Stahlberg (Gideon) 964 games</option><option value="Staunton.pgn">Staunton (Howard) 284 games</option><option value="Stefanova.pgn">Stefanova (Antoaneta) 1444 games</option><option value="Stein.pgn">Stein (Leonid) 699 games</option><option value="Steinitz.pgn">Steinitz (William) 590 games</option><option value="Suetin.pgn">Suetin (Alexey Stepanovich) 1284 games</option><option value="Sutovsky.pgn">Sutovsky (Emil) 933 games</option><option value="Svidler.pgn">Svidler (Peter) 2193 games</option><option value="Szabo.pgn">Szabo (Laszlo) 1777 games</option><option value="Taimanov.pgn">Taimanov (Mark Evgenievitch) 2117 games</option><option value="Tal.pgn">Tal (Mihail) 2431 games</option><option value="Tarrasch.pgn">Tarrasch (Siegbert) 704 games</option><option value="Tartakower.pgn">Tartakower (Saviely) 1290 games</option><option value="Teichmann.pgn">Teichmann (Richard) 536 games</option><option value="Timman.pgn">Timman (Jan Hendrikus) 3290 games</option><option value="Tiviakov.pgn">Tiviakov (Sergei) 2214 games</option><option value="Tkachiev.pgn">Tkachiev (Vladislav) 1254 games</option><option value="Tomashevsky.pgn">Tomashevsky (Evgeny) 616 games</option><option value="Topalov.pgn">Topalov (Veselin) 1833 games</option><option value="Uhlmann.pgn">Uhlmann (Wolfgang) 2537 games</option><option value="Unzicker.pgn">Unzicker (Wolfgang) 1265 games</option><option value="VachierLagrave.pgn">Vachier Lagrave (Maxime) 788 games</option><option value="Vaganian.pgn">Vaganian (Rafael Artemovich) 2242 games</option><option value="VallejoPons.pgn">Vallejo Pons (Francisco) 1481 games</option><option value="VanWely.pgn">Van Wely (Loek) 2936 games</option><option value="Vitiugov.pgn">Vitiugov (Nikita Kirillovich) 694 games</option><option value="Volokitin.pgn">Volokitin (Andrei) 802 games</option><option value="Waitzkin.pgn">Waitzkin (Joshua) 385 games</option><option value="WangHao.pgn">Wang Hao 671 games</option><option value="WangYue.pgn">Wang Yue 911 games</option><option value="Winawer.pgn">Winawer (Szymon) 241 games</option><option value="Wojtaszek.pgn">Wojtaszek (Radoslaw) 910 games</option><option value="Wojtkiewicz.pgn">Wojtkiewicz (Aleksander) 1564 games</option><option value="Wolff.pgn">Wolff (Patrick Gideon) 614 games</option><option value="XieJun.pgn">Xie Jun 701 games</option><option value="YeJiangchuan.pgn">Ye Jiangchuan 655 games</option><option value="Yermolinsky.pgn">Yermolinsky (Alex) 1380 games</option><option value="Yudasin.pgn">Yudasin (Leonid) 1425 games</option><option value="ZhuChen.pgn">Zhu Chen 857 games</option><option value="Zukertort.pgn">Zukertort (Johannes Hermann) 265 games</option><option value="Zvjaginsev.pgn">Zvjaginsev (Vadim) 1196 games</option></select>
+<select id="chp" onchange="Game(this.value)"><option value="0">Games loading ... </option></select>
+<a href="javascript:Init()" title="Initialisation"><img id="bnt" class="btn" src="" alt="Initialisation"><img src="./img/1.gif" width="36" height="36" alt=""/></a>
+<a href="javascript:if (ok_mod) StartGame(pv_cell); else if (!ok_prm) while (0<whichTurn) Backwards(true)"><img id="bbw" class="btn" src=""><img src="./img/btini.gif" width="36" height="36" alt=""/></a>
+<a href="javascript:if (!ok_mod && 0<whichTurn && !ok_prm) Backwards(true)"><img id="bbc" class="btn" src=""><img src="./img/btgca.gif" width="36" height="36" alt=""/></a>
+<a href="javascript:if (ok_mod) ShowChangeTurn(); else {rv=1-rv;Place()}"><img id="bct" class="btn" src=""><img src="./img/btngc.gif" width="36" height="36" alt=""/></a>
+<a href="javascript:if (!ok_mod && whichTurn<maxTurn && !ok_prm) Forwards(true)"><img id="bfr" class="btn" src=""><img src="./img/btrnwh.gif" width="36" height="36" alt=""/></a>
+<a href="javascript:if (ok_mod) StartGame(po_cell); else if (!ok_prm) while (whichTurn<maxTurn) Forwards(true)"><img id="bfw" class="btn" src=""><img src="./img/btndr.gif" width="36" height="36" alt=""/></a>
+<a href="javascript:if (!ok_prm) ChangeMode()"><img id="bqz" class="btn" src=""><img src="./img/btdra.gif" width="36" height="36" alt=""/></a>
+<a href="javascript:if (!ok_prm) ShowList()"><img id="bcm" class="btn" src="" title="Change mode : import or export"></a>
+<a href="javascript:if (ok_vis=='list') ReadList(); else if (ok_vis=='slct') ExportSlc() "><img id="bex" class="btn" src=""><img src="img/btimp.gif" width="36" height="36" alt=""/></a>
+
+<script type="text/javascript">
+function $(i){return document.getElementById(i);}
+(function(){
+	var xmlObj=false;
+	var xmlFct=[function(){return new XMLHttpRequest()}
+		,function(){return new ActiveXObject("Msxml2.XMLHTTP")}
+		,function(){return new ActiveXObject("Msxml3.XMLHTTP")}
+		,function (){return new ActiveXObject("Microsoft.XMLHTTP")}];
+	for (var i=0;i<xmlFct.length;i++) {try{xmlObj = xmlFct[i]();}catch(e){continue;}break;}
+	
+	return sndRqtAjax=function(url,cllbck,pstDta){
+		var req=xmlObj;
+		if (!req) return;
+		var mth=(pstDta)? "POST":"GET";
+		req.open(mth,url,true);
+		req.setRequestHeader('User-Agent','XMLHTTP/1.0');
+		if (pstDta) req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+		req.onreadystatechange=function(){
+			if (req.readyState!=4) return;
+			if (req.status!=200 && req.status!=304) return;
+			cllbck(req.responseText);}
+		if (req.readyState==4) return;
+		req.send(pstDta);
+	};
+}());
+var tabGames=[];
+function Games(f){if (f) {$('chp').selectedIndex=0;sndRqtAjax("pgn/"+f,
+	function(r){var opt='',n=1;
+		$('chp').options.length=1;
+		s=r.replace(/(\[[^\]]+\]\r\n)+/g,
+			function(a){var i,j,k,opt='';
+		  	i=a.search(/Event "/i);if (-1<i) b=a.substr(i+7); else b='';j=b.search(/"/);
+  			if (-1<j) opt+=b.substr(0,j);
+  			i=a.search(/Site "/i);if (-1<i) b=a.substr(i+6); else b='';j=b.search(/"/);k=b.substr(0,j);
+  			if (-1<j && k!='?' && !new RegExp(k).test(opt)) opt+=', '+b.substr(0,j);	
+  			i=a.search(/Date "/i);if (-1<i) b=a.substr(i+6); else b='';j=b.search(/\./)
+  			if (-1<j) opt+=" - "+b.substr(0,j);
+				i=a.search(/White "/i);if (-1<i) b=a.substr(i+7); else b='';j=b.search(/"/)
+  			if (-1<j) opt+=" : "+b.substr(0,j).replace(/(,)\s?(.+)/,' ($2)');
+  			i=a.search(/Black "/i);if (-1<i) b=a.substr(i+7); else b='';j=b.search(/"/)
+  			if (-1<j) opt+=" - "+b.substr(0,j).replace(/(,)\s?(.+)/,' ($2)');
+  			i=a.search(/Result "/i);if (-1<i) b=a.substr(i+8); else b='';j=b.search(/"/)
+  			if (-1<j) opt+=" : "+b.substr(0,j);
+  			$('chp').options[n]=new Option(n+'. '+opt,n++);
+		 	return '|'+a});
+		tabGames=s.split('|');$('chp').selectedIndex=1;Game(1)});}
+}
+function Game(v){if(!v) v=1;$('txa').value=tabGames[v];ReadList();}
+// Positionning
+var oJeu=$('jeu'),Yo=oJeu.offsetTop,Xo=oJeu.offsetLeft,tXo=9,tYo=0,delta=38;
+// The move of bishops, rooks and knifes 
+var Bs=[11,9,-11,-9],Ro=[10,-1,-10,1],Kn=[12,21,19,8,-12,-21,-19,-8];
+var theBoard=[],theB=[],whoMvd=[],ambT=[],rv=0;
+for (i=0; i<9; i++) {theBoard[i]="OO";theBoard[10*(i+1)]="OO";theBoard[91+i]="OO";theBoard[10*i+9]="OO"}
+var piece_id="WR0,WN1,WB2,WQ3,WK4,WB5,WN6,WR7,WP8,WP9,WP10,WP11,WP12,WP13,WP14,WP15,BP16,BP17,BP18,BP19,BP20,BP21,BP22,BP23,BR24,BN25,BB26,BQ27,BK28,BB29,BN30,BR31,WQ32,WR33,WB34,WN35,BQ36,BR37,BB38,BN39".split(',');
+var po_cell=new Array(11,12,13,14,15,16,17,18,21,22,23,24,25,26,27,28,71,72,73,74,75,76,77,78,81,82,83,84,85,86,87,88,128,128,128,128,128,128,128,128);
+var pc_cell=[],pd_cell=[],pv_cell=[],part=[];for (i=0;i<po_cell.length;i++) pv_cell[i]=128;pv_cell[4]=15;pv_cell[28]=85;
+var ok_old,ok_mod,ok_vis,ok_prm,alpha='abcdefgh';
+var c='',wb="WB";
+txto="\n\n  Choisi ton adversaire dans la liste ci dessous\n \n ."
+for (var i=0;i<piece_id.length;i++) {
+	document.write('<img id="'+piece_id[i]+'" class="pcs" src="./img/'+piece_id[i].substr(0,2).toLowerCase()+'.gif">')}
+
+function Init(){
+	ok_old="slct";ok_mod=true;ok_vis="tabl";
+	Set_Obj('tbl',9,0,1);Set_Obj('txa',9,0,1);Set_Obj('tsl',9,0,1);
+	Set_Obj('gms',9,6.5,1);Set_Obj('chp',9,7.3,1);
+	Set_Obj("bnt",0,9,0,0);Set_Obj("bbw",2,9,-12);Set_Obj("bbc",3,9,-12);
+	Set_Obj("bct",4,9,-12);Set_Obj("bfr",5,9,-12);Set_Obj("bfw",6,9,-12);
+	Set_Obj("bqz",8,9,-24);Set_Obj("bcm",9,9,-24);Set_Obj("bex",10,9,-24);
+	StartGame(po_cell);$('txa').value=txto;ChangeMode();ShowList();
+}
+Init();	
+
+function Set_Obj(objId,col,row,dx,dy){var dx=dx?dx:0,dy=dy?dy:0;
+	$(objId).style.left=col*delta+Xo+dx+'px';$(objId).style.top=row*delta+Yo+dy+'px';
+}
+ 
+function StartGame(px_cell){var i;
+	for (i=0;i<64;i++) theBoard[(1+(i>>3))*10+i%8+1]="VV";
+	for (i=0;i<po_cell.length;i++) pc_cell[i]=px_cell[i];
+	for (i=0;i<po_cell.length;i++) if (pc_cell[i]<128) theBoard[pc_cell[i]]=piece_id[i];
+	for (i=0;i<6;i++) whoMvd[i]=0;whichTurn=0;whoseTurn=0;decTurn=0;
+	for (i=$('tsl').options.length-1;0<i;i--) $('tsl').options[i]=null;
+	$('msg').value="Nouvelle partie";
+	$('mss').value="Blanc et noir ";
+	epTurn=-1;epCell=0;ok_prm=false;Place();
+}
+function Place(){var i;
+	for (i=0;i<piece_id.length;i++) Set_Cell($(piece_id[i]),pc_cell[i]);
+}
+function Set_Cell(pcobj,cellNumb,andRegister) {var vis,lig,col,pcC,pcT;
+	vis=(ok_mod || ok_vis=="tabl")? "visible":"hidden";
+	if (128 & cellNumb) {pcC=pcobj.id.substr(0,1);pcT=pcobj.id.substr(1,1); 
+		lig=tYo+"KQRBNP".indexOf(pcT);col=3*wb.indexOf(pcC)+tXo;pcobj.style.visibility=vis}
+	else {clN=99*(1-rv)+cellNumb*(2*rv-1);lig=Math.floor(clN/10)-1;col=8-clN%10;pcobj.style.visibility="visible"}
+	pcobj.style.left=(col*delta+Xo+2)+'px';pcobj.style.top=(lig*delta+Yo+2)+'px';
+	if (andRegister) pc_cell[parseInt(pcobj.id.substring(2,4))]=cellNumb;
+}
+function Get_Cell(pcobj){var lig,col;
+	lig=1+Math.floor((parseInt(pcobj.style.top)-Yo-2+delta/2)/delta)
+	col=1+Math.floor((parseInt(pcobj.style.left)-Xo-2+delta/2)/delta)
+	if (0<col && col<9 && 0<lig && lig<9) return 99*(1-rv)+(10*lig+9-col)*(2*rv-1);
+//	alert(lig+' '+col)
+if (tXo<=col && col<=tXo+4 && tYo<=lig && lig<=tYo+6) return 128+(lig-tYo+8*(col-tXo))
+	return null;
+}
+function ChangeMode(){var i;
+	ok_mod=!ok_mod;
+	if (ok_mod) {$('bbw').title="Only the kings";$('bbc').style.visibility="hidden";$('bfr').style.visibility="hidden";
+		$('tsl').style.visibility="hidden";$('txa').style.visibility="hidden";
+		$('bfw').title="All the pieces";
+		$('bct').title="Who moves first";$('bqz').title="Play the game in this position"}
+	else {$('bbw').title="Go at the beginning of the game";$('bbc').title="One half-move back";
+		$('tsl').style.visibility="visible";
+		$('bbc').style.visibility="visible";$('bfr').title="One half-move forwards";$('bfr').style.visibility="visible"
+		$('bfw').title="Go to the end of the game";$('bct').title="Who moved color. On click turn the board.";
+		$('bqz').title="Place the pieces of a chess composition";
+		whoMvd[0]=theBoard[11].substr(0,2)!="WR";whoMvd[1]=theBoard[15].substr(0,2)!="WK"
+		whoMvd[2]=theBoard[18].substr(0,2)!="WR";whoMvd[3]=theBoard[81].substr(0,2)!="BR"
+		whoMvd[4]=theBoard[85].substr(0,2)!="BK";whoMvd[5]=theBoard[88].substr(0,2)!="BR"}
+	ShowTabl();whichTurn=0;for (i=$('tsl').options.length-1;0<i;i--) $('tsl').options[i]=null
+	maxTurn=0;decTurn=whoseTurn;
+}
+function ShowTabl(){	var i,vis=(ok_vis=="tabl")? "hidden":"visible";
+	for (i=0;i<pc_cell.length;i++) if (99<pc_cell[i]) $(piece_id[i]).style.visibility=vis;$('tbl').style.visibility=vis;
+	if (ok_vis!="tabl"){ok_old=ok_vis;ok_vis="tabl";$('tsl').style.visibility="hidden"}
+	else {ok_vis=ok_old;if (ok_vis=="slct") $('tsl').style.visibility="visible";if (ok_vis=="list") $('tsl').style.visibility="visible"}
+}
+function ShowList(){ 
+	if (ok_vis=="list") {$('txa').style.visibility="hidden";$('tsl').style.visibility="visible";
+	$('bex').src="./img/btexp.gif";$('bex').title="Export a game";ok_vis="slct"}
+	else if (ok_vis=="slct") {$('txa').style.visibility="visible";$('tsl').style.visibility="hidden";
+	$('bex').src="./img/btimp.gif";$('bex').title="Import a game";ok_vis="list"}
+}
+function ShowChangeTurn(){
+	if (whoseTurn) $('bct').src="img/btrnwh.gif"; else $('bct').src="./img/btrnbl.gif";whoseTurn=1-whoseTurn;whichTurn++;
+}
+function Search(pieceSt){var i;
+	i=0;while (i<pc_cell.length && ( pc_cell[i]<128 || piece_id[i].substr(0,2)!=pieceSt)) i++;return piece_id[i]
+}
+function Backwards(withLine){var pcId,dCell,aCell,sgn,rkCell,pcPr,pcAr
+	whichTurn--;pcId=part[5*whichTurn];
+	dCell=part[5*whichTurn+1];aCell=part[5*whichTurn+2];sgn=((aCell-dCell)>>1);rkCell=dCell+((7*sgn-1)>>1);
+	pcPr=part[5*whichTurn+3];
+	pcAr=theBoard[aCell]
+	if (pcAr.substr(0,2)==part[5*whichTurn+4]) {Set_Cell($(pcAr),128,1);Set_Cell($(pcAr=Search(pcAr.substr(0,1)+"P")),dCell,1)}
+	else Set_Cell($(pcAr),dCell,1)
+	theBoard[dCell]=pcAr
+	if (pcId.substr(1,1)=="K" && Math.abs(aCell-dCell)==2) {whoMvd[3*(1-whoseTurn)+1]=0;whoMvd[3*(1-whoseTurn)+1+sgn]=0;
+		theBoard[rkCell]=theBoard[aCell-sgn];Set_Cell($(theBoard[aCell-sgn]),rkCell,1);theBoard[aCell-sgn]="VV"}
+	if (pcId.substr(1,1)=="P" && pcPr=="VV" && aCell%10!=dCell%10) {eCell=10*Math.floor(dCell/10)+(aCell%10)
+		theBoard[eCell]=Search(wb.charAt(whoseTurn)+"P");Set_Cell($(theBoard[eCell]),eCell,1)}
+	if (pcPr.substr(3,1)) whoMvd[parseInt(pcPr.substr(3,1))]=0;
+	if (pcPr.substr(2,1)) whoMvd[parseInt(pcPr.substr(2,1))]=0;pcPr=pcPr.substr(0,2);
+	if (pcPr!="VV") {	Set_Cell($(pId=Search(pcPr)),aCell,1);theBoard[aCell]=pId}
+	else theBoard[aCell]="VV";
+	whichTurn--;ShowChangeTurn()
+	if (withLine) $('tsl').selectedIndex=(whichTurn+1+decTurn)>>1
+}
+function Forwards(withLine){var sCell,dCell;
+	sCell=part[5*whichTurn+1];dCell=part[5*whichTurn+2];
+	Play($(theBoard[sCell]),sCell,dCell,true);
+	if (ok_prm) ChoixPromo($(Search(part[5*whichTurn+4])),true)
+	if (withLine) $('tsl').selectedIndex=(whichTurn+1+decTurn)>>1
+}
+function ExportSlc(){var i,nwTxt='\n'
+	for (i=1;i<$('tsl').options.length;i++) nwTxt+=$('tsl').options[i].text+"\n";
+	ShowList();$('txa').value=nwTxt;
+}
+function GotoStep(whichLine){
+	if (!ok_prm && 0<=whichLine) {while (2*whichLine<whichTurn) Backwards();while (whichTurn<2*whichLine &&  whichTurn<maxTurn) Forwards()}
+	else $('tsl').selectedIndex=$('tsl').options.length-1
+}
+function WriteSlc(pcT,srC,dsC){var i,nbL,nwC,nwL,nbA,amB;
+	if (ok_vis!="slct") ShowList();
+	nbL=((whichTurn+decTurn)>>1)+1
+	for (i=$('tsl').options.length-1;nbL+whoseTurn<=i;i--) $('tsl').options[i]=null
+	if (pcT=="K" && Math.abs(dsC-srC)==2) {if (0<dsC-srC) nwC='O-O'; else nwC='O-O-O'} // des lettres majuscules
+	else{ if (theBoard[dsC].substr(0,2)!="VV") nwC="x"; else nwC=''
+		if (pcT=="P") {if (nwC) nwC=alpha.charAt(srC%10-1)+nwC}
+		else {nbA=0;amB='';for (i=0;i<pc_cell.length;i++) {ndC=pc_cell[i];
+			if (ndC<128 && ndC!=srC && piece_id[i].substr(0,2)==wb.charAt(whoseTurn)+pcT && CheckPossibleMove(ndC,dsC)) ambT[nbA++]=ndC}
+			if (0<nbA) {amB=alpha.charAt(srC%10-1);i=0;while (i<nbA && ambT[i]%10!=srC%10) i++}
+			if (i<nbA) {amB=Math.floor(srC/10);i=0;while (i<nbA && Math.floor(ambT[i]/10)!=amB) i++}
+			if (i<nbA) amB=alpha.charAt(srC%10-1)+amB
+			nwC=pcT+amB+nwC}
+		nwC+=alpha.charAt(dsC%10-1)+Math.floor(dsC/10)}
+	if (whoseTurn==0){ nwL=(((nbL)<10)? ' ':'')+nbL+". "+nwC;$('tsl').options[nbL]=new Option(nwL)}
+	else if (decTurn==1 && whichTurn==0) {nwL=" 1...       "+nwC;$('tsl').options[nbL]=new Option(nwL)}
+			else {nwL=$('tsl').options[nbL].innerHTML.substr(0,12);while (nwL.length<12) nwL+=' ';nwL+=nwC;
+				$('tsl').options[nbL].innerHTML=nwL}
+	$('tsl').selectedIndex=$('tsl').options.length-1;
+}
+function ReadList(){var i,j,k,str=' '+$('txa').value,newSt='',rps;
+	Init();ShowList();
+	i=str.search(/Event "/i);if (-1<i) rps=str.substr(i+7); else rps='';j=rps.search(/"/)
+  	if (-1<j) $('msg').value=rps.substr(0,j);
+  i=str.search(/Site "/i);if (-1<i) rps=str.substr(i+6); else rps='';j=rps.search(/"/);k=rps.substr(0,j);
+  	if (-1<j && k!='?' && !new RegExp(k).test($('msg').value)) $('msg').value+=' - '+rps.substr(0,j);	
+  	i=str.search(/Date "/i);if (-1<i) rps=str.substr(i+6); else rps='';j=rps.search(/\./)
+  	if (-1<j) $('msg').value+=" "+rps.substr(0,j)
+	i=str.search(/White "/i);if (-1<i) rps=str.substr(i+7); else rps='';j=rps.search(/"/)
+  	if (-1<j)$('mss').value=rps.substr(0,j).replace(/(,)\s?(.+)/,' ($2)');
+  i=str.search(/Black "/i);if (-1<i) rps=str.substr(i+7); else rps='';j=rps.search(/"/)
+  	if (-1<j) $('mss').value+=" - "+rps.substr(0,j).replace(/(,)\s?(.+)/,' ($2)');
+  i=str.search(/Result "/i);if (-1<i) rps=str.substr(i+8); else rps='';j=rps.search(/"/)
+  	if (-1<j) $('mss').value+=" "+rps.substr(0,j);	
+
+	while (-1<str.search(/\[[^\[\]]*\]/)) str=str.replace(/\[[^\[\]]*\]/g,' ')
+	while (-1<str.search(/\{[^\{\}]*\}/)) str=str.replace(/\{[^\{\}]*\}/g,' ')
+	while (-1<str.search(/\([^\(\)]*\)/)) str=str.replace(/\([^\(\)]*\)/g,' ')
+	str=str.replace(/[o]/g,'O');str=str.replace(/0-0/g,'O-O');	str=str.replace(/0-0-0/g,'O-O-O')
+	str=str.replace(/\.{3}/g,'.');str=str.replace(/\./g,'. ')
+	str=str.replace(/[\s][^a-z\s][^\s]+/gi,' ');
+	str=str.replace(/[\n\r]+/g,' ');str=str.replace(/[\s]+/g,' ');str=str.replace(/^[\s]+/,'')
+	str=str.replace(/[\s]+$/,'')+' ';
+	i=j=k=1;
+	while (str!='' && 0<k) {j=1-j;
+		coup=str.substr(0,k=str.indexOf(' '));
+  			if (PlayMove(j,coup)){
+					if (j==0) {newSt+=((i<10)?' ':'')+(i++)+". ";while (coup.length<8) coup+=' ';newSt+=coup}
+					else newSt+=coup+"\n"}
+			else {k=-1;newSt+="\n"}
+		str=str.substr(k+1);
+	}
+  	$('txa').value=newSt+str;
+  	if (k<0) {ShowList();alert("Illegal or ambiguous move !\n Please correct the list...")}
+ 	else {while (0<whichTurn) Backwards(true)}
+}
+function PlayMove(turn,move){var i,mvC=0,srC,idx,dsA,etc,dsC,ppT=null,whP,clP,_ah,_18,ndC;
+	if (move=='O-O-O' || move=='o-o-o' || move=='0-0-0') {whP=wb.charAt(turn)+"K";
+		srC=50-35*(1-2*turn);dsC=srC-2;
+		if (CheckPossibleMove(srC,dsC)) mvC++}
+	else if (move=='O-O' || move=='o-o' || move=='0-0') {whP=wb.charAt(turn)+"K";
+		srC=50-35*(1-2*turn);dsC=srC+2;
+		if (CheckPossibleMove(srC,dsC)) mvC++}
+	else {if (-1<(idx=move.search('='))) ppT=move.charAt(idx+1);
+		dsA=move.substr(etc=move.search(/[a-h][1-8]/),2);
+		dsC=10*parseInt(dsA.charAt(1))+alpha.indexOf(dsA.charAt(0))+1;
+		whP=move.charAt(0);
+	 	clP=alpha.indexOf(whP)+1;
+		if (0<clP) whP="P"; else {move=move.substr(1);clP=0}
+		whP=wb.charAt(turn)+whP;
+		move=move.substr(0,etc-1);
+		move=move.replace(/x/,'')
+		_ah=_18=0;
+		if (move) if (isNaN(i=parseInt(move))) _ah=alpha.indexOf(move)+1; else _18=i
+		for (i=0;i<pc_cell.length;i++){ndC=pc_cell[i];
+			if (ndC<128 && piece_id[i].substr(0,2)==whP && (clP==0 || ndC%10==clP)
+			&& (_ah==0 || ndC%10==_ah) && (_18==0 || Math.floor(ndC/10)==_18)
+			&& !isNaN(dsC) && 10<dsC && dsC<89 && theBoard[dsC].substr(0,1)!=wb.charAt(turn)
+			&& CheckPossibleMove(ndC,dsC)) { mvC++;srC=ndC}}}
+	if (mvC!=1) return false;
+	if (!ppT) Play($(theBoard[srC]),srC,dsC);
+				else {Play($(theBoard[srC]),srC,dsC,true);WriteSlc(ppT,srC,dsC);ChoixPromo($(Search(wb.charAt(turn)+ppT)))}
+	return true;
+}
+function ChoixPromo(piece,replay){
+	Set_Cell($(theBoard[prmCell]),128,1);theBoard[prmCell]=piece.id;part[5*whichTurn+4]=piece.id.substr(0,2);
+	Set_Cell(piece,prmCell,1);ShowChangeTurn(whoseTurn);
+	if (!replay) {$('tsl').options[$('tsl').options.length-1].innerHTML+="="+piece.id.substr(1,1);
+		if (0<(mat=CheckForCheck(wb.charAt(whoseTurn),true))) $('tsl').options[$('tsl').options.length-1].innerHTML+=" +#".charAt(mat)}
+	ok_prm=false;
+}
+/* part la suite des coups tableau au pas de 5 !
+	 part[5*whichTurn] = pièce jouée
+	 part[5*whichTurn+1] = case de départ
+	 part[5*whichTurn=2] = case d'arrivée
+	 part[5*whichTurn+3] = pièce prise ou VV plus roque interdit(*)
+	 part[5*whichTurn+4] = pièce de promotion du pion
+	 (*) whoMvd : 6 booléeans indqiquant mouvement des tours et rois
+*/
+function Play(piece,srC,dsC,replay){var pcT,pmv,prs,mat;
+		if (theBoard[dsC]!="VV") Set_Cell($(theBoard[dsC]),128,1)
+		epTurn=-1;pcT=piece.id.substr(1,1);
+		if (pcT=="P") {
+  			if (theBoard[dsC]=="VV") {othP=wb.charAt(1-whoseTurn)+"P"
+				if (Math.abs(dsC-srC)==20 && (theBoard[dsC-1].substr(0,2)==othP
+					|| theBoard[dsC+1].substr(0,2)==othP)) {epTurn=whichTurn+1;epCell=dsC}
+				else if (srC%10!=dsC%10) {
+							Set_Cell($(theBoard[epCell]),128,1);theBoard[epCell]="VV"}}
+	 		ok_prm=(9-2*Math.floor(dsC/10)==7*(2*whoseTurn-1));prmCell=dsC}
+		if (pcT=="K" && Math.abs(dsC-srC)%10==2){
+			sgn=((dsC-srC)>>1);rkCell=srC+((7*sgn-1)>>1);theRook=theBoard[rkCell];
+			Set_Cell($(theRook),dsC-sgn,1);theBoard[rkCell]="VV";theBoard[dsC-sgn]=theRook}
+		pmv=theBoard[srC];prs=theBoard[dsC];
+		
+		if (!replay) WriteSlc(pcT,srC,dsC);
+		
+		theBoard[srC]="VV";
+		theBoard[dsC]=piece.id;Set_Cell(piece,dsC,1);
+		part[5*whichTurn]=piece.id.substr(0,2);part[5*whichTurn+1]=srC;part[5*whichTurn+2]=dsC;
+		mkn="K";mrk="R";prk="R";
+		dlt=35*(1-2*whoseTurn);whoMad=3*whoseTurn;
+		if (srC==50-dlt && whoMvd[whoMad+1]==0) whoMvd[mkn=whoMad+1]=1;// Roi 
+		if (srC==46-dlt && whoMvd[whoMad]==0) whoMvd[mrk=whoMad]=1; // Tour
+		if (srC==53-dlt && whoMvd[whoMad+2]==0) whoMvd[mrk=whoMad+2]=1; // Tour
+		if (dsC==46+dlt && whoMvd[3-whoMad]==0) whoMvd[prk=3-whoMad]=1; // Tour 
+		if (dsC==53+dlt && whoMvd[5-whoMad]==0) whoMvd[prk=5-whoMad]=1; // Retour de tour
+		if (mkn=="K" || pmv.substr(1,1)!="K") mkn="";
+		if (mrk=="R" || pmv.substr(1,1)!="R") mrk="";
+		if (prk=="R" && prs.substr(1,1)!="R") prk="";
+		part[5*whichTurn+3]=prs.substr(0,2)+mkn.toString()+mrk.toString()+prk.toString();
+		if (!replay) {part[5*whichTurn+4]="VV";maxTurn=whichTurn+1;if (ok_prm) ShowTabl();
+			if (0<(mat=CheckForCheck(wb.charAt(1-whoseTurn),true))) $('tsl').options[$('tsl').options.length-1].text+=" +#".charAt(mat)}
+		if (!ok_prm) ShowChangeTurn();
+}
+var drgObj={
+	x:0,y:0,ox:null,oy:null,ob:null,dOk:0,dwCell:null,upCell:null
+	
+	,ntl:function(){document.onmousedown=this.drf;
+		document.onmouseup=function(){var obj=this.ob;
+			if (obj) {this.upCell=Get_Cell(obj);
+//			 alert(this.dwCell+' '+this.upCell);
+      if (ok_vis=="tabl" && this.upCell && this.upCell!=this.dwCell) {
+				if (this.upCell<128) {if (this.dwCell<128) theBoard[this.dwCell]="VV";
+				if (theBoard[this.upCell]!="VV") Set_cell($(theBoard[this.upCell]),128,1)
+					Set_Cell(obj,this.upCell,1);theBoard[this.upCell]=obj.id}
+				else {Set_Cell(obj,128,1);theBoard[this.dwCell]="VV"}}
+		
+			else if (ok_vis!="tabl" && this.upCell && this.dwCell<128 && this.upCell<128 && this.upCell!=this.dwCell
+				&& obj.id.charAt(0)==wb.charAt(whoseTurn)
+				&& theBoard[this.upCell].charAt(0)!=wb.charAt(whoseTurn)
+				&& CheckPossibleMove(this.dwCell,this.upCell)) Play(obj,this.dwCell,this.upCell);
+			else Set_Cell(obj,this.dwCell);
+			obj.style.zIndex=1;	   
+		this.ob=null;this.dOk=0;}}}
+		
+	,drf:function(e){var ev=e?e:window.event,ob=e?e.target:event.srcElement;
+	  // Éviter les textNodes
+		while (ob.nodeType!=1) ob=ob.parentNode;
+		while (ob.nodeName!='IMG' && ob.nodeName!='HTML') ob=ob.parentNode;
+		if (ob.nodeName=='HTML' || ob.className!="pcs") return;
+		  this.dwCell=Get_Cell(ob);
+		  if (ok_prm){
+				if (this.dwCell && (this.dwCell & 128) &&
+					Math.floor((dwC=this.dwCell-128)>>3)==1+3*whoseTurn && 0<dwC%8 && dwC%8<6){ 
+						ChoixPromo(ob);ShowTabl()}
+			return}
+			this.ob=ob;this.dOk=1;this.ob.style.zIndex=3;	
+			this.ox=parseInt(this.ob.style.left);
+			this.oy=parseInt(this.ob.style.top);
+			this.x=ev.clientX;
+			this.y=ev.clientY;
+			if (ev.preventDefault) ev.preventDefault();
+			document.onmousemove=drgObj.mvt}
+
+	,mvt:function(e){
+		var ev=window.event? window.event:e;
+		if (this.dOk==1){
+			this.ob.style.left=this.ox+ev.clientX-this.x+"px";
+			this.ob.style.top=this.oy+ev.clientY-this.y+"px";
+			return false}}
+}
+drgObj.ntl();
+function OtherColor(one){return wb.charAt(1-wb.indexOf(one))
+}
+function CheckMoveCheck(srC,dsC){var saveSrc=theBoard[srC],saveDst=theBoard[dsC],srcColor=saveSrc.substr(0,1);
+	if (epTurn==whichTurn) {saveEpCell=theBoard[epCell];theBoard[epCell]="VV"}
+	theBoard[srC]="VV";theBoard[dsC]=saveSrc;
+	returnVal=CheckForCheck(srcColor,false);
+	theBoard[srC]=saveSrc;theBoard[dsC]=saveDst;
+	if (epTurn==whichTurn) theBoard[epCell]=saveEpCell;
+	return (returnVal==1);
+}
+var checkCount,oneChecker;
+
+function CheckForCheck(whichClr,careIfMate){var i,j,kngName=whichClr+"K",kngCll,theChecker;
+	var saveCheckCount=0;
+	for (i=0;i<64;i++) {j=(1+(i>>3))*10+i%8+1;if (theBoard[j].substr(0,2)==kngName){kngCll=j;break}}
+	checkCount=CheckPositionForCheck(whichClr,kngCll,true);
+	if (checkCount==0) return 0;
+	if (!careIfMate) return 1;   
+	theChecker=oneChecker;saveCheckCount=checkCount;
+	// Moving the king to an adjacent square ? 
+	i=0;while (theBoard[kngCll-Ro[i]]=="OO") i++;
+	while((i<4) && ((theBoard[kngCll-Ro[i]].substr(0,1)==whichClr) || (0<CheckPositionForCheck(whichClr,kngCll-Ro[i],true))))
+		{i++;while (theBoard[kngCll-Ro[i]]=="OO") i++}
+	if (i<4) {checkCount=saveCheckCount;return 1}
+	i=0;while (theBoard[kngCll-Bs[i]]=="OO") i++;
+	while((i<4) && ((theBoard[kngCll-Bs[i]].substr(0,1)==whichClr) || (0<CheckPositionForCheck(whichClr,kngCll-Bs[i],true))))
+		{i++;while (theBoard[kngCll-Bs[i]]=="OO") i++}
+	if (i<4) {checkCount=saveCheckCount;return 1}
+	// Double check ?
+	if (1<saveCheckCount) {checkCount=saveCheckCount;return 2}
+	// Capturing the checking piece ? (if the opposing king is in check at it place)
+	if (0<CheckPositionForCheck(OtherColor(whichClr),theChecker,false)) {checkCount=saveCheckCount;return 1}
+	if (theBoard[theChecker].substr(1,1)=="N") {checkCount=saveCheckCount;return 2}
+	// Blocking the check 
+	for (i=0;i<64;i++) {inCell=theBoard[j=((i>>3)+1)*10+i%8+1];
+		if ((inCell.substr(0,1)==whichClr) && (inCell.substr(1,1)!="K") && CheckClearPath(theChecker,kngCll,j))
+				{checkCount=saveCheckCount;return 1}}
+	return 2;
+}
+function CheckPositionForCheck(whichClr,checkCell,kingIsConcerned) {
+	var i,j,kj,kngName,crrPce,ok,checkPiece;
+	oneChecker=0;checkCount=0;kngName=whichClr+"K";othClr=OtherColor(whichClr);
+	// Check from King   
+//	if (kingIsConcerned) {
+	checkPiece=othClr+"K"; 
+		for (i=0;i<4;i++){kj=checkCell-Ro[i];
+			if (theBoard[kj].substr(0,2)==checkPiece) {checkCount++;oneChecker=kj}
+			kj=checkCell-Bs[i];
+			if (theBoard[kj].substr(0,2)==checkPiece) {checkCount++;oneChecker=kj}}
+//			}
+	// Check from knight
+	checkPiece=othClr+"N";
+	for (i=0;i<8;i++){kj=checkCell-Kn[i];
+		if (theBoard[kj] && theBoard[kj].substr(0,2)==checkPiece) {checkCount++;oneChecker=kj}}
+	checkPiece = othClr+"P";
+	for (i=9;i<12;i+=2) {kj=checkCell-(2*wb.indexOf(whichClr)-1)*i;
+		if (theBoard[kj].substr(0,2)==checkPiece) {checkCount++;oneChecker=kj}
+		if ((epTurn==whichTurn) && (checkCell==epCell)) {kj=epCell-(i-10);
+			if (theBoard[kj].substr(0,2)==checkPiece) {checkCount++;oneChecker=kj}}}
+	// Check from Q or R		
+	for (i=0;i<4;i++){kj=checkCell-Ro[i];crrPce=theBoard[kj].substr(0,2);ok=true;
+		while ((crrPce!="OO") && ok){
+			if ((crrPce!="VV") && (crrPce!=kngName)){
+				if ((crrPce==othClr+"Q") || (crrPce==othClr+"R")){checkCount++;oneChecker=kj} 
+				ok=false}
+			kj-=Ro[i];crrPce=theBoard[kj].substr(0,2)}}
+	// Check from Q or B		
+	for (i=0;i<4;i++){kj=checkCell-Bs[i];crrPce=theBoard[kj].substr(0,2);ok=true
+		while ((crrPce!="OO") && ok){
+			if 	((crrPce!="VV") && (crrPce!=kngName)){
+				if ((crrPce==othClr+"Q") || (crrPce==othClr+"B")) {checkCount++;oneChecker=kj} 
+				ok=false}
+			kj-=Bs[i];crrPce=theBoard[kj].substr(0,2)}}
+	return checkCount;
+}
+function CheckClearPath(srC,dsC,pinnedPiece) {
+	var step=0,okc=false,dlt=Math.abs(dsC-srC),sgn=-Math.round((dsC-srC)/dlt),squareInLine;
+	if (Math.floor(srC/10)==Math.floor(dsC/10)) step=sgn;
+	else if (dlt%9==0) step=9*sgn;
+	else if (dlt%10==0) step=10*sgn;
+	else if (dlt%11==0) step=11*sgn;
+	if (step!=0){squareInLine=srC-step;
+		if (pinnedPiece==0) while ((dsC-squareInLine!=0)&&(theBoard[squareInLine]=="VV")) squareInLine-=step;
+		else while ((dsC-squareInLine!=0)&&(!CheckPossibleMove(pinnedPiece,squareInLine))) squareInLine-=step;
+		okc=(dsC-squareInLine!=0)^(pinnedPiece==0);}
+	return okc;
+}
+function CheckPossibleMove(srC,dsC){var sPce=theBoard[srC],srcColor=sPce.substr(0,1),sType=sPce.substr(1,1);
+	var othClr=OtherColor(srcColor),dlt=Math.abs(dsC-srC);goodMove=false,ms=-1;
+	switch (sType){
+		case "K":goodMove=(dlt==1) || (dlt==9) || (dlt==10) || (dlt==11);
+			if (!goodMove) {whoMad=3*whoseTurn;midCell=dsC-ms*srC>>1;
+				goodMove = whoMvd[whoMad+1]==0 && theBoard[dsC]=="VV" && theBoard[midCell]=="VV"
+					&& CheckPositionForCheck(srcColor,srC,false)==0 && CheckPositionForCheck(srcColor,midCell,true)==0
+						&& ((whoMvd[whoMad]==0 && dsC-srC==-2 && theBoard[dsC-1]=="VV") || (whoMvd[whoMad+2]==0 && dsC-srC==2));}
+			break;
+ 		case "Q":goodMove=CheckClearPath(srC,dsC,0);break;
+		case "B":goodMove=(dlt%9==0 || dlt%11==0) && CheckClearPath(srC,dsC,0);break;
+		case "N":var i=0;while (i<8 && dsC-srC!=Kn[i]) i++;goodMove=(i<8);break;
+		case "R":goodMove=(Math.floor(srC/10)==Math.floor(dsC/10) || dlt%10==0) && CheckClearPath(srC,dsC,0);break;
+		case "P":whoseDir=(1-2*whoseTurn);
+		goodMove=(0<(dsC-srC)*whoseDir) && ( (dlt==9 && theBoard[dsC].substr(0,1)==othClr)
+			|| (dlt==10 && theBoard[dsC]=="VV") || (dlt==11 && theBoard[dsC].substr(0,1)==othClr)
+			|| (dlt==20 && 2*Math.floor(srC/10)-9==5*(2*whoseTurn-1) && theBoard[dsC-10*whoseDir]=="VV" && theBoard[dsC]=="VV")
+			|| (epTurn==whichTurn && dsC-10*whoseDir==epCell && Math.abs(srC-epCell)==1 ));
+		break;
+	}
+	return goodMove && !CheckMoveCheck(srC,dsC);
+}
+$(function() {
+	$( "#Button1" ).button(); 
+});
+$(function() {
+	$( "#Buttonset1" ).buttonset(); 
+});
+</script>
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+   <script src="./js/jquery-3.3.1.min.js"></script>
+
+   <!-- Include all compiled plugins (below), or include individual files as needed --> 
+   <script src="./js/popper.min.js"></script>
+ <script src="./js/bootstrap-4.3.1.js"></script>
+ </body>
+</html>
+
+</body>
+</html>
