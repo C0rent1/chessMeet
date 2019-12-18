@@ -53,6 +53,10 @@ router.get('/triparnote', function(req, res) {
 router.get('/trinbjoueur', function(req, res) {
   res.sendFile(path.resolve(__dirname+'/trinbjoueur.html'));  //TODO
 });
+router.get('/tritypeEtb', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/tritypeEtb.html'));  //TODO
+});
+
 
 
 
