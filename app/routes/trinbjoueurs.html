@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrinbJoueur</title>
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap URL-->
+	      <link href="./css/bootstrap-4.3.1.css" rel="stylesheet">
+
+
+  </head>
+	  <script type="text/javascript">
+	function changerCouleur(id) {
+		var indic=0;
+	    var element = document.getElementById(id);
+	if (indic === 0){
+		element.style.backgroundColor = 'aqua';
+		indic=1;
+	} else{
+			element.style.backgroundColor = 'white';
+		indic=0;
+	}
+	}
+</script>
+  <body style="background-color: black">
+   <header><img src="../public/img/untitled.png" alt="logojeuechec" width="188" height="136" class="rounded img-fluid"></header>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                 <a class="nav-link" href="./acceuil" style="margin-left: 80px;"><strong style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size: 1,5;">Accueil </strong></a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="./regles_jeu" style="margin-left: 80px;"><strong>Apprendre</strong></a>
+              </li>
+           <li class="nav-item">
+                 <a class="nav-link" href="./jouer" style="margin-left: 80px;"><strong>Jouer</strong></a>
+              </li>
+           <li class="nav-item">
+                 <a class="nav-link" href="./membres" style="margin-left: 80px;"><strong>Membres</strong></a>
+              </li>
+             <li class="nav-item">
+                 <a class="nav-link" href="./compte" style="margin-left: 100px"><strong>Se connecter</strong></a>
+              </li>
+         
+           </ul>
+           <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Chercher.." aria-label="Chercher" size="17px;">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+           </form>
+     </div>
+     </nav>  <br>
+       <hr>
+       <br>
+  <div class="btn-toolbar" role="toolbar">
+	     <div class="btn-group mr-2" role="group">
+  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:420px;">Voir la carte</button>
+  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="liste.html">Voir la liste</button>
+    </div>
+  </div>
+	   <div class="row">
+  <div class="col-sm-3" style="background-color: #DBB140 ; padding-bottom:50px;">
+	  <p style="font-size: 24px; text-align: center; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #000000;">Tous les établissements</p>
+	  <br>
+	  <div style="background-color: white; padding-bottom: 150px;">
+	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;"> <img src="flecheretour.jpg" width="22" height="16"> Retour Catégories</p>
+	  
+	   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:22px;margin-top:70px;"><img src="etoile.jpg" width="23" height="22">Notes</p>
+	  <br>
+            <br> <p style="margin-top: 50px; text-align: center; color: #000000;font-size:20px">Plus de 2  <input type="radio"></p>
+			  <br>
+            <br> <p style="margin-top: 50px; text-align: center; color: #000000;font-size:20px">Plus de 5  <input type="radio">  </p>
+			  <br>
+		              <br> <p style="margin-top: 50px; text-align: center; color: #000000;font-size:20px">Plus de 10 <input type="radio">  </p>
+
+	    </div>
+      
+      <br>
+    </div>
+		   <script type="text/javascript"> 
+			var afficher=false; //permet de savoir si l'image est affichée ou non
+			
+			function viewImage(id) { 
+				var contenuImage=!afficher ? "<img src='infoclubechec.png'>" : ""; //en fonction de afficher on met l'image ou non
+				afficher=!afficher;
+			
+				document.getElementById(id).innerHTML=contenuImage;
+				document.getElementById("bouton").innerHTML=contenuBouton; 
+			} 	  
+
+		</script>	
+		   
+  <div class="col-sm-5" style="background-color: black; padding-bottom: 50px; margin-left: 50px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #FFFFFF;">
+	       <img id="map" src="../public/img/CARTE.png" width="800" height="600" alt="" onClick="javascript:viewImage('image');"/> </div>
+	  </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="./js/jquery-3.3.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap-4.3.1.js"></script>
+  </body>
+</html>

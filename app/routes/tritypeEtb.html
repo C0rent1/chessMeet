@@ -12,7 +12,19 @@
 
 
   </head>
-  
+	  <script type="text/javascript">
+	function changerCouleur(id) {
+		var indic=0;
+	    var element = document.getElementById(id);
+	if (indic === 0){
+		element.style.backgroundColor = 'aqua';
+		indic=1;
+	} else{
+			element.style.backgroundColor = 'white';
+		indic=0;
+	}
+	}
+</script>
   <body style="background-color: black">
    <header><img src="../public/img/untitled.png" alt="logojeuechec" width="188" height="136" class="rounded img-fluid"></header>
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,29 +56,35 @@
            </form>
      </div>
      </nav>
-        <br>
+  <br>
        <hr>
        <br>
-       <div class="row">
-	     <div class="col-sm-7" style="margin-bottom: 200px;, margin-top: 200px;"><br></br><img src="../public/img/echecimage.png" width="695" height="390"></div>
-	  <div class="col-sm-5" style="background-color: white;"><p style="text-align: center; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size: 24pt;"><strong>ChessMeet’</strong></p>
-	  <p style= "margin-top: 50px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size: 14pt;">Connectez-vous à votre compte ou créer un compte</p>
-		  <br></br>
-	  <p style= "margin-top: 10px;"><label for = "pseudo" style="text-align: center;"><strong>Pseudo</strong></label>
-	    <input id="pseudo" class="form-control mr-sm-2" type="input" aria-label="Chercher" size="17px;"></p>
-	  <br></br>
-	<p style= "margin-top: 10px;"><label for = "password"><strong>Mot de passe</strong></label>
-	<input id ="password" type="password"></p>
-	
-	<input style= "margin-top: 50px;" id="coch" type="checkbox"> 
-	<span style="font-size: 10pt; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif;">Se souvenir de moi</span> 
-	<p><span style="margin-left: 170px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif;">Mot de passe oublié?</span></p> 
-    <p style="margin-left: 90px; background-color: #FFD41D; color: #000000; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif;"><a class="btn btn-primary alert-link" href="./comptejoueur" role="button" style = "color: aliceblue">Se connecter</a> </p>
-    <p style="margin-left: 90px; background-color: #FFD41D; color: #000000; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif;"><a class="btn btn-primary alert-link" href="./creationCompte" role="button" style = "color: aliceblue">Créer un compte</a> </p>
-<br></br>
-	<span style="text-align: center; font-size: 9pt; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif;">J’accepte les Conditions d’utilisation et la Politique de confidentialité du <span style="text-align: center">site.</span></span> </div>
+  <div class="btn-toolbar" role="toolbar">
+	     <div class="btn-group mr-2" role="group">
+  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:420px;">Voir la carte</button>
+  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="liste.html">Voir la liste</button>
+    </div>
   </div>
-    
+	   <div class="row">
+  <div class="col-sm-3" style="background-color: #DBB140 ; padding-bottom:50px;">
+	  <p style="font-size: 24px; text-align: center; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #000000;">Tous les établissements</p>
+	  <br>
+	  <div style="background-color: white; padding-bottom: 150px;">
+	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;"> <img src="../public/img/flecheretour.jpg" width="22" height="16"> Retour Catégories</p>
+	  
+	 <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:24px; margin-top:60px;"><img src="../public/img/etablissement.jpg" width="28" height="28">Type d'établissement</p>
+	  <br>
+            <br> <p style="margin-top: 50px; text-align: center; color: #000000;font-size:22px">Public <input type="radio"></p>
+			  <br>
+            <br> <p style="margin-top: 50px; text-align: center; color: #000000;font-size:22px">Privé <input type="radio">  </p>
+			  <br>
+	    </div>
+      
+      <br>
+    </div>
+		   
+  <div class="col-sm-5" style="background-color: black; padding-bottom: 50px; margin-left: 50px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #FFFFFF;">
+	       <img src="../public/img/CARTE.png" width="800" height="600" alt=""/> </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="./js/jquery-3.3.1.min.js"></script>
 
@@ -75,3 +93,4 @@
   <script src="./js/bootstrap-4.3.1.js"></script>
   </body>
 </html>
+

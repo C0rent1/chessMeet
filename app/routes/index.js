@@ -50,6 +50,10 @@ router.get('/liste', function(req, res) {
 router.get('/triparnote', function(req, res) {
   res.sendFile(path.resolve(__dirname+'/triparnote.html'));  //TODO
 });
+router.get('/trinbjoueur', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/trinbjoueur.html'));  //TODO
+});
+
 
 
 // the catch all route
