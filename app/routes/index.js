@@ -44,6 +44,12 @@ router.get('/creationCompte', function(req, res) {
 router.get('/carte', function(req, res) {
   res.sendFile(path.resolve(__dirname+'/carte.html'));
 });
+router.get('/liste', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/liste.html'));  //TODO
+});
+router.get('/triparnote', function(req, res) {
+  res.sendFile(path.resolve(__dirname+'/triparnote.html'));  //TODO
+});
 
 
 // the catch all route

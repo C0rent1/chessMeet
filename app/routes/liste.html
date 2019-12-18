@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ListeClub</title>
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap URL-->
+	      <link href="./css/bootstrap-4.3.1.css" rel="stylesheet">
+
+
+  </head>
+	  <script type="text/javascript">
+	function changerCouleur(id) {
+		var indic=0;
+	    var element = document.getElementById(id);
+	if (indic === 0){
+		element.style.backgroundColor = 'aqua';
+		indic=1;
+	} else{
+			element.style.backgroundColor = 'white';
+		indic=0;
+	}
+	}
+</script>
+  <body style="background-color: black">
+    <header><img src="./img/untitled.png" alt="logojeuechec" width="188" height="136" class="rounded img-fluid"></header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="./acceuil" style="margin-left: 80px;"><strong style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size: 1,5;">Accueil </strong></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="./regles_jeu" style="margin-left: 80px;"><strong>Apprendre</strong></a>
+               </li>
+            <li class="nav-item">
+                  <a class="nav-link" href="./jouer" style="margin-left: 80px;"><strong>Jouer</strong></a>
+               </li>
+            <li class="nav-item">
+                  <a class="nav-link" href="./membres" style="margin-left: 80px;"><strong>Membres</strong></a>
+               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./compte" style="margin-left: 100px"><strong>Se connecter</strong></a>
+               </li>
+          
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+               <input class="form-control mr-sm-2" type="search" placeholder="Chercher.." aria-label="Chercher" size="17px;">
+               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+            </form>
+      </div>
+      </nav>
+  <br>
+       <hr>
+       <br>
+  <div class="btn-toolbar" role="toolbar">
+	     <div class="btn-group mr-2" role="group">
+  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: white; margin-left:310px;">Voir la carte</button>
+  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: aqua" href="liste.html">Voir la liste</button>
+    </div>
+  </div>
+	   <div class="row">
+  <div class="col-sm-3" style="background-color: darksalmon; padding-bottom:50px;">
+	  <p style="font-size: 24px; text-align: center; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #000000;">Tous les établissements</p>
+	  <br>
+	  <div style="background-color: white;">
+	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;">Catégories</p>
+	  
+	 <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:18px; margin-top:70px;"><img src="HTML%3APNG/etablissement.jpg" width="28" height="28">Type d'établissement</p>
+	  <br>
+	   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:18px;margin-top:70px;"><img src="HTML%3APNG/etoile.jpg" width="23" height="22">Notes</p>
+	  <br>
+	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:18px;margin-top:70px;"><img src="HTML%3APNG/nmjoueurs.jpg" width="29" height="23"> Nombre de joueurs</p>
+		  <br>
+    </div>
+  </div>
+		   
+  <div class="col-sm-4" style="background-color: whitesmoke; padding-bottom: 50px; margin-left: 50px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #EF0C0C; text-align: center; font-size: 22px;">
+	     <p>Valence Club Echec</p>
+	  <br>
+	  <p style="color: black;">17 Rue Louis Gallet, 26000 Valence</p>
+	  <p style="color: black;">Nombre de Joueurs actuels : <b style="color:red">8</b> </p> 
+	  		    <p style="margin-top: 150px; font-size: 18px;">Indiquer que je suis en route vers ce club <input type="radio"></p>
+	     </div>
+		   <div class="col-sm-5 col-lg-4" style="background-color: whitesmoke;  font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #EF0C0C; margin-buttom: 200px; text-align: center; font-size: 22px;">
+			   <img src="../public/img/logoechecc.png" width="300" height="250" alt=""/> </div>
+	  </div>
+	 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="./js/jquery-3.3.1.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap-4.3.1.js"></script>
+  </body>
+</html>
