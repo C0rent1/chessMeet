@@ -61,8 +61,8 @@
        <br>
   <div class="btn-toolbar" role="toolbar">
 	     <div class="btn-group mr-2" role="group">
-  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:310px;" href="./carte.html">Voir la carte</button>
-  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="./liste.html">Voir la liste</button>
+  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:310px;" href="./carte">Voir la carte</button>
+  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="./liste">Voir la liste</button>
     </div>
   </div>
 	   <div class="row">
@@ -70,10 +70,10 @@
 	  <p style="font-size: 24px; text-align: center; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #000000;">Tous les établissements</p>
 	  <br>
 	  <div style="background-color: white; padding-bottom: 150px;">
-	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;"> <img src="../public/img/flecheretour.jpg" width="22" height="16"><a href="./carte.html"> Retour Catégories</a></p>
+	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;"> <img src="img/flecheretour.jpg" width="22" height="16"><a href="./carte"> Retour Catégories</a></p>
 	  
 	  <br>
-	   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:22px;margin-top:70px;"><img src="../public/img/etoile.jpg" width="23" height="22">Notes</p>
+	   <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:22px;margin-top:70px;"><img src="img/etoile.jpg" width="23" height="22">Notes</p>
 	  <br>
 		   <br> <p style="margin-top: 50px; text-align: center; color: #000000;font-size:22px">1 étoile<input type="radio"></p>
 			  <br>
@@ -87,7 +87,7 @@
    var afficher=false; //permet de savoir si l'image est affichée ou non
    
    function viewImage(id) { 
-      var contenuImage=!afficher ? "<img src='../public/img/infoclubechec.png'>" : ""; //en fonction de afficher on met l'image ou non
+      var contenuImage=!afficher ? "<img src='img/infoclubechec.png'>" : ""; //en fonction de afficher on met l'image ou non
       afficher=!afficher;
    
       document.getElementById(id).innerHTML=contenuImage;
@@ -96,9 +96,9 @@
 
 </script>
   <div class="col-sm-5" style="background-color: #DBB140 ; padding-bottom: 50px; margin-left: 50px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #FFFFFF;">
-          <img src="../public/img/CARTE.png" width="800" height="600" alt=""/>
+          <img src="img/CARTE.png" width="800" height="600" alt=""/>
           <button id='image' onClick="javascript:viewImage('image');" style="margin-top:100px;font-size: 30px;"> Voir le Club </button><br>
-          <button style=" font-size: 30px;"> <a href="./itineraire.html">Voir itineraire</a></button>
+          <button style=" font-size: 30px;"> <a href="./itineraire">Voir itineraire</a></button>
          </div>
          </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
