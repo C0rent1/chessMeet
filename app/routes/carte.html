@@ -62,8 +62,8 @@
        <br>
   <div class="btn-toolbar" role="toolbar">
 	     <div class="btn-group mr-2" role="group">
-  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:310px;">Voir la carte</button>
-  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="liste.html">Voir la liste</button>
+  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:310px;" href="./carte.html">Voir la carte</button>
+  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="./liste.html">Voir la liste</button>
     </div>
   </div>
 	   <div class="row">
@@ -81,9 +81,26 @@
 		  <br>
     </div>
   </div>
-		   
+  <script type="text/javascript"> 
+   var afficher=false; //permet de savoir si l'image est affichée ou non
+   
+   function viewImage(id) { 
+      var contenuImage=!afficher ? "<img src='../public/img/infoclubechec.png'>" : ""; //en fonction de afficher on met l'image ou non
+      afficher=!afficher;
+   
+      document.getElementById(id).innerHTML=contenuImage;
+      document.getElementById("bouton").innerHTML=contenuBouton; 
+   } 	  
+
+</script>  
   <div class="col-sm-5" style="background-color: #DBB140 ; padding-bottom: 50px; margin-left: 50px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #FFFFFF;">
-	       <img src="../public/img/CARTE.png" width="800" height="600" alt=""/> </div>
+          <img src="../public/img/CARTE.png" width="800" height="600" alt=""/> 
+          <button id='image' onClick="javascript:viewImage('image');" style="margin-top:100px;font-size: 30px;"> Voir le Club </button><br>
+          <button style=" font-size: 30px;"> <a href="./itineraire.html">Voir itineraire</a></button>
+         </div>
+
+         </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="./js/jquery-3.3.1.min.js"></script>
 

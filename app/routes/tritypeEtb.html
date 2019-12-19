@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap - Prebuilt Layout</title>
+    <title>Tri par Etablissements</title>
 
     <!-- Bootstrap -->
     <!-- Bootstrap URL-->
@@ -61,8 +61,8 @@
        <br>
   <div class="btn-toolbar" role="toolbar">
 	     <div class="btn-group mr-2" role="group">
-  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:420px;">Voir la carte</button>
-  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="liste.html">Voir la liste</button>
+  <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-lg" style="background-color: aqua; margin-left:420px;" href="./carte.html">Voir la carte</button>
+  <button id="bouton2" onclick="changerCouleur(id)" autofocus type="button" class="btn btn-lg" style="background-color: white" href="./liste.html">Voir la liste</button>
     </div>
   </div>
 	   <div class="row">
@@ -70,7 +70,7 @@
 	  <p style="font-size: 24px; text-align: center; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #000000;">Tous les établissements</p>
 	  <br>
 	  <div style="background-color: white; padding-bottom: 150px;">
-	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;"> <img src="../public/img/flecheretour.jpg" width="22" height="16"> Retour Catégories</p>
+	  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;"> <img src="../public/img/flecheretour.jpg" width="22" height="16"> <a href="./carte.html"> Retour Catégories</a></p>
 	  
 	 <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; text-align: center;font-size:24px; margin-top:60px;"><img src="../public/img/etablissement.jpg" width="28" height="28">Type d'établissement</p>
 	  <br>
@@ -82,9 +82,24 @@
       
       <br>
     </div>
-		   
+    <script type="text/javascript"> 
+      var afficher=false; //permet de savoir si l'image est affichée ou non
+      
+      function viewImage(id) { 
+         var contenuImage=!afficher ? "<img src='../public/img/infoclubechec.png'>" : ""; //en fonction de afficher on met l'image ou non
+         afficher=!afficher;
+      
+         document.getElementById(id).innerHTML=contenuImage;
+         document.getElementById("bouton").innerHTML=contenuBouton; 
+      } 	  
+
+   </script>
   <div class="col-sm-5" style="background-color: black; padding-bottom: 50px; margin-left: 50px; font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; color: #FFFFFF;">
-	       <img src="../public/img/CARTE.png" width="800" height="600" alt=""/> </div>
+          <img src="../public/img/CARTE.png" width="800" height="600" alt=""/>
+          <button id='image' onClick="javascript:viewImage('image');" style="margin-top:100px;font-size: 30px;"> Voir le Club </button><br>
+          <button style=" font-size: 30px;"> <a href="./itineraire.html">Voir itineraire</a></button>
+         </div>
+      </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
     <script src="./js/jquery-3.3.1.min.js"></script>
 

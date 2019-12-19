@@ -40,6 +40,19 @@
           </form>
     </div>
     </nav>
+    <script type="text/javascript">
+      function changerCouleur(id) {
+         var indic=0;
+          var element = document.getElementById(id);
+      if (indic === 0){
+         element.style.backgroundColor = 'aqua';
+         indic=1;
+      } else{
+            element.style.backgroundColor = 'white';
+         indic=0;
+      }
+      }
+   </script>
     <div class="container active"style="margin-bottom: 80px; padding-top: 100px; padding-buttom: 50px ; background-color: aliceblue; font-size: 10rem;margin-top:100px; padding-left:100px;">
       <button id="bouton1" onclick="changerCouleur(id)" type="button" class="btn btn-light btn-lg" style="background-color: #FFCE42; margin-left: 50px;font-size: 2.5rem;padding-top:30px;padding-bottom:30px;">Blitz</button> 
      <button id="bouton2" onclick="changerCouleur(id)" type="button" class="btn btn-light active" style="background-color: #FFCE42; font-size: 2.5rem;padding-top:30px;padding-bottom:30px;">Semi-rapide</button>
